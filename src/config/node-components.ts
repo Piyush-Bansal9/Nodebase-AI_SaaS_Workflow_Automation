@@ -1,6 +1,6 @@
 import { InitialNode } from "@/components/initial-node";
 import { NodeType } from "@/generated/prisma";
-import { NodeTypes } from "@xyflow/react";
+import type { NodeTypes } from "@xyflow/react";
 
 
 export const nodeComponents = {

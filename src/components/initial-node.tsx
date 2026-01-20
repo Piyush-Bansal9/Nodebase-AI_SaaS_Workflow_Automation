@@ -1,6 +1,6 @@
 "use client"
 
-import { type NodeProps } from "@xyflow/react"
+import type { NodeProps } from "@xyflow/react"
 import { memo } from "react"
 import { PlaceholderNode } from "./react-flow/placeholder-node"
 import { PlusIcon } from "lucide-react"
