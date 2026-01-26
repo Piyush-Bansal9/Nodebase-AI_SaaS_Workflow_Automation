@@ -17,7 +17,7 @@ export const httpRequestExecutor: NodeExecutor<HTTPRequestData> = async ({
     if(!data.endpoint) {
         throw new NonRetriableError("HTTP Request node: No endpoint configured.");
     }
-    const result = await step.run("http-request", async() => {
+    const result = await step.run(`http-request:${nodeId}`, async() => {
         const endpoint = data.endpoint!;
         const method = data.method || "GET";
 

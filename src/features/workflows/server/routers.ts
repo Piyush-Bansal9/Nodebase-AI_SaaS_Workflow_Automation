@@ -11,7 +11,7 @@ export const workflowRouter = createTRPCRouter({
     execute: protectedProcedure
         .input(z.object({ id: z.string() }))
         .mutation(async ({ input, ctx }) => {
-            const workflow = prisma.workflow.findUniqueOrThrow({
+            const workflow = await prisma.workflow.findUniqueOrThrow({
                 where: {
                     id: input.id,
                     userId: ctx.auth.user.id
