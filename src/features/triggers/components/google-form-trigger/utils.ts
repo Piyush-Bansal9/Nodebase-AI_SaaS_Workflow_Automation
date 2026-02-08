@@ -15,7 +15,7 @@ export const generateGoogleFormScript = (
     var payload = {
         formId: e.source.getId(),
         formTitle: e.source.getTitle(),
-        responseId: fo rmResponse.getId(),
+        responseId: formResponse.getId(),
         timestamp: formResponse.getTimestamp(),
         respondentEmail: formResponse.getRespondentEmail(),
         responses: responses
