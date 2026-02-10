@@ -6,6 +6,7 @@ import { NonRetriableError } from "inngest";
 import { googleFormTriggerExecutor } from "@/features/triggers/components/google-form-trigger/executor";
 import { stripeTriggerExecutor } from "@/features/triggers/components/stripe-trigger/executor";
 import { geminiExecutor } from "../components/gemini/executor";
+import { openAiExecutor } from "../components/openai/executor";
 
 
 export const executorRegistry: Record<NodeType, NodeExecutor> = {
@@ -15,7 +16,7 @@ export const executorRegistry: Record<NodeType, NodeExecutor> = {
     [NodeType.GOOGLE_FORM_TRIGGER]: googleFormTriggerExecutor,
     [NodeType.STRIPE_TRIGGER]: stripeTriggerExecutor,
     [NodeType.GEMINI]: geminiExecutor,
-    [NodeType.OPENAI]: geminiExecutor, 
+    [NodeType.OPENAI]: openAiExecutor, 
 }
 
 export const getExecutor = (type: NodeType) : NodeExecutor => {
