@@ -59,7 +59,7 @@ const executionNodes : NodeTypeOption[] = [
     {
         type: NodeType.DISCORD,
         label: "Discord",
-        description: "Send a message to discord",
+        description: "Send a message to Discord",
         icon: "/logos/discord.svg"
     }
 ];
