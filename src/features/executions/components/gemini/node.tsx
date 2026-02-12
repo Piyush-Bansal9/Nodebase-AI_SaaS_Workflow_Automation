@@ -9,6 +9,7 @@ import { GEMINI_CHANNEL_NAME } from "@/inngest/channels/gemini";
 
 type GeminiNodeData = {
     variableName?: string;
+    credentialId?: string;
     systemPrompt?: string;
     userPrompt?: string;
 }
@@ -58,16 +59,16 @@ export const GeminiNode = memo((props: NodeProps<GeminiNodeType>) => {
                 onSubmit={handleSubmit}
                 defaultValues={nodeData}
             />
-            <BaseExecutionNode
-                {...props}
-                id={props.id}
-                icon="/logos/gemini.svg"
-                name="Gemini"
-                status={nodeStatus}
-                description={description}
-                onSettings={handleOpenSettings}
-                onDoubleClick={handleOpenSettings}
-            />
+                <BaseExecutionNode
+                    {...props}
+                    id={props.id}
+                    icon="/logos/gemini.svg"
+                    name="Gemini"
+                    status={nodeStatus}
+                    description={description}
+                    onSettings={handleOpenSettings}
+                    onDoubleClick={handleOpenSettings}
+                />
         </>
     )
 })
