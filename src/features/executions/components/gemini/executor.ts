@@ -5,6 +5,7 @@ import { geminiChannel } from "@/inngest/channels/gemini";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateText } from "ai";
 import prisma from "@/lib/db";
+import { decrypt } from "@/lib/encryption";
 
 Handlebars.registerHelper("json", (context) => {
     const jsonString = JSON.stringify(context, null, 2);
@@ -28,14 +29,12 @@ export const geminiExecutor: NodeExecutor<GeminiData> = async ({
     step,
     publish
 }) => {
-    console.log("[Gemini Executor] nodeId:", nodeId);
     await publish(
         geminiChannel().status({
             nodeId,
             status: "loading"
         })
     )
-    console.log("[Gemini Executor] published loading for:", nodeId);
 
     // This works here because step.ai.wrap doesnt open a different scope whereas step.run did.
     if(!data.variableName) {
@@ -94,7 +93,7 @@ export const geminiExecutor: NodeExecutor<GeminiData> = async ({
     }
 
     const google = createGoogleGenerativeAI({
-        apiKey: credential.value,
+        apiKey: decrypt(credential.value),
     })
 
 
